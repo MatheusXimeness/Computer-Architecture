@@ -30,8 +30,8 @@ int main (int argc, char *argv[]) {
         texiste = fopen("mil.txt", "r");
     }else if(tot == 10000){
         texiste = fopen("dezMil.txt", "r");
-    }else if(tot == 1000000){
-        texiste = fopen("milhao.txt", "r");
+    }else if(tot == 100000){
+        texiste = fopen("cemMil.txt", "r");
     }
     for(int i=0;i<tot;i++){
         fscanf(texiste, "%i",&val[i]);
