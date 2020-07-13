@@ -1,0 +1,46 @@
+int *saxpy(int N) {
+    N = 1000;
+    int x[N], *y[N];
+    int a = 2;
+    for(int i=0; i<N; i++){
+        x[i] = i;
+        *y[i] = i;
+    }
+    for (int i=0; i < N; i++)
+        y[i] = a*x[i] + y[i];
+    return *y;
+}
+
+- Linha 2: inicializa um registrador com 1000 (N)
+- Não tem como iniciar na memória do programa é preciso fazer um código
+    addi f1,rx,1000;
+    sd f1,0(rx);
+
+- Linha 3: inicializa os vetores (n sei como fazer no webrisc)
+  reservar uma sequência de memória
+
+- Linha 4: inicializa um registrador com 2 (a)
+    addi f2,rx,2;
+    sd f2,0(rx);
+
+- Linha 5-7: preenche os vetores
+  usar a sequencia de memória reservada para inicializa-lás
+    loop 
+    ld f1,0(r1);
+    addi f1,r1,1;
+    sd f1,0(r1);
+    ld f2,0(r1);
+    addi f2,r1,1;
+    sd f2,0(r2);
+    addi r1,r1,4;
+    addi r2,r1,4;
+    bne vai pra 5 ou vai pra 9;
+
+- Linha 9-10:
+    loop
+    ld f1,r1(0);
+    ld f2,r2(0);
+    mult f3,f1,a;
+    addF f2,f3,f2;
+    addi r1,r1,4;
+    bne ;
