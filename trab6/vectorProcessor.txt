@@ -1,0 +1,17 @@
+// -- INICIALIZANDO REGISTRADORES -- //
+    LOAD  R1,100
+    LOAD  R2, A(R1)
+    LOAD  R3, B(R1)
+    LOAD  R4, C(R1)
+    LOAD  R5, D(R1) // TEMPORARIA
+    LOADV RV1(1:R1), X(1:R1)
+    LOADV RV2(1:R1), Y(1:R1)
+// -- -- //
+
+// -- CALCULOS -- //
+    MULTV RV1(1:-1), R2
+    MULTV RV1(1: 1), R3
+    MULTV RV1(1:+1), R4
+    ADDV  R5,RV1(1:-1),RV1(1:1)
+    ADDV  R5, R5, RV1(1:+1)
+// -- -- //
