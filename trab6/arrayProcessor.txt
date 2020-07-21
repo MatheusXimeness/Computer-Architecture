@@ -1,0 +1,6 @@
+FOR i = 1 TO N-2 DO
+    PAR FOR k = 1 TO N-2 DO
+        t = x(i-1)*A;
+        v = x(i)*B;
+        s = x(i+1)*C;
+        x(i+2) = t+v+s;
