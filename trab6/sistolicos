@@ -1,0 +1,5 @@
+1º 
+    Yout <- Yin + W * Xin
+2º 
+    Y <- Y + Win * Xin
+    Wout <- Win
