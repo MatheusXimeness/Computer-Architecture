@@ -1,0 +1,9 @@
+class MovingAvgSimpleKernel extends Kernel {
+    MovingAvgSimpleKernel(){
+        SCSVar x = io.input(”x”, scsDouble(7, 17));
+        SCSVar prev = stream.offset(x, −1);
+        SCSVar next = stream.offset(x, 1);
+        SCSVar A, B, C;
+        SCSVar conv = A*prev + B*x + C*next;
+    }
+}
